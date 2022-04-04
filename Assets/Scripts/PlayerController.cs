@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private int count;
+    private int defJumps;
     private float movementX;
     private float movementY;
 
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        defJumps = jumps;
     }
 
     void OnMove(InputValue movementValue)
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.name == "Ground" || other.gameObject.CompareTag("Walls"))
         {
-            jumps = 2;
+            jumps = defJumps;
         }
     }
 
